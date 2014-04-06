@@ -2,6 +2,7 @@
 	var config = require('./config.js');
 	var http = require('http');
 	var fs = require('fs');
+
 	http.createServer (function (req, res) {
 		fs.readFile(config.inputFile, function (err, data) {
 			if (err) {
@@ -16,5 +17,5 @@
 				res.end(temperatureModel.temperature + unitAbbr + ' as of ' + date + '\n');
 			}
 		});
-	}).listen(8083);
+	}).listen(config.listenPort);
 }());
